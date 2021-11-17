@@ -10,18 +10,20 @@ String.prototype.reverse = function reverse() {
 function Phrase(content) {
   this.content = content;
 
-  this.processor = function(string) {
-    return this.string = string.toLowerCase()
-  }
-
   //Returns content processed for palidnrome testing.
   this.processedContent = function processedContent() {
-    return this.processor(this.content);
+    return this.letters().toLowerCase();
   }
 
   //Returns the letters in the content.
   this.letters = function letters() {
-    return this.content; //stub return value
+    let theLetters = [];
+    for (let i = 0; i < this.content.length; i++) {
+      if (this.content.charAt(i).match(/[a-zA-Z]/)) {
+        theLetters.push(this.content.charAt(i))
+      }
+    }
+    return theLetters.join("");
   }
 
   // Returns true for a palindrome, false otherwise.
