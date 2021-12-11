@@ -11,7 +11,7 @@ const lettersRegEx = /[a-z]/gi;
 // Defines a Phrase object.
 function Phrase(content) {
   this.content = content;
-  
+
   //Returns content processed for palidnrome testing.
   this.processedContent = function processedContent() {
     return this.letters().toLowerCase();
@@ -24,6 +24,10 @@ function Phrase(content) {
 
   // Returns true for a palindrome, false otherwise.
   this.palindrome = function palindrome() {
-    return this.processedContent() === this.processedContent().reverse();
+    if (this.letters()) {
+      return this.processedContent() === this.processedContent().reverse();
+    } else {
+      return false;
+    }
   }
 }
